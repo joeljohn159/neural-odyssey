@@ -108,7 +108,7 @@ function XORProblem() {
         </svg>
       ),
     },
-    ...xorData.map((d, idx) => {
+    ...xorData.map((d, _idx) => {
       const h1 = Math.max(0, d.x1 + d.x2 - 0.5)
       const h2 = Math.max(0, d.x1 + d.x2 - 1.5)
       const out = Math.max(0, h1 - 2 * h2)
@@ -293,7 +293,6 @@ function UniversalApproximation() {
     (x) => 0.6 * Math.max(0, x) - 1.2 * Math.max(0, x - 0.7) + 1.0 * Math.max(0, x - 1.4) - 0.4 * Math.max(0, x - 2.2), // 4
     (x) => 0.7 * Math.max(0, x + 0.1) - 1.4 * Math.max(0, x - 0.5) + 1.4 * Math.max(0, x - 1.1) - 1.0 * Math.max(0, x - 1.7) + 0.3 * Math.max(0, x - 2.3), // 5
     (x) => { // 8 neurons — good fit
-      const t = x / 3.14
       return Math.sin(x * 2) * 0.75 + (Math.random() - 0.5) * 0.02
     },
     target, // "perfect" fit

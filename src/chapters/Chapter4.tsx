@@ -12,10 +12,6 @@ function LossLandscapeExplorer() {
   const lossAt = (wt: number) => (wt - 3) ** 2 + 1
   const gradAt = (wt: number) => 2 * (wt - 3)
 
-  const trajectories: { lr: number; label: string; color: string }[] = [
-    { lr: 0.1, label: 'LR = 0.1 (good)', color: '#10B981' },
-  ]
-
   // Simulate gradient descent steps
   const numSteps = 12
   let wt = 0.5 // starting weight
@@ -116,15 +112,12 @@ function BackpropStepper() {
   // Backward pass
   const dL_dout = out - target
   const dL_dw2 = [dL_dout * h[0], dL_dout * h[1]]
-  const dL_db2 = dL_dout
   const dL_dh = [dL_dout * w2[0], dL_dout * w2[1]]
   const dL_dz1 = dL_dh.map((d, i) => z1[i] > 0 ? d : 0)
   const dL_dw1 = [[dL_dz1[0]*x[0], dL_dz1[0]*x[1]], [dL_dz1[1]*x[0], dL_dz1[1]*x[1]]]
-  const dL_db1 = dL_dz1
 
   // Updated weights
   const new_w2 = [w2[0] - lr * dL_dw2[0], w2[1] - lr * dL_dw2[1]]
-  const new_b2 = b2 - lr * dL_db2
 
   const steps: Step[] = [
     {

@@ -222,7 +222,7 @@ function ActivationExplorer() {
   const testInputs = [-3, -2, -1, -0.5, 0, 0.5, 1, 2, 3]
   const active = fns[activeFn]
 
-  const steps: Step[] = testInputs.map((input, idx) => {
+  const steps: Step[] = testInputs.map((input, _idx) => {
     const outVal = active.fn(input)
     const derivVal = active.deriv(input)
     const w = 500, h = 250
