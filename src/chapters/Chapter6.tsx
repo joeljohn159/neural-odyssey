@@ -182,7 +182,6 @@ function VanishingGradientDemo() {
           <svg viewBox={`0 0 ${w} ${h}`} className="w-full">
             {/* Bars */}
             {grads.map((g, i) => {
-              const barIdx = i
               const visible = timeSteps - i <= stepIdx
               const barHeight = g * 150
               const barX = 40 + i * 45

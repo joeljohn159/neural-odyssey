@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import ChapterLayout from '../components/shared/ChapterLayout'
 import StepperAnimation, { type Step } from '../components/shared/StepperAnimation'
 import CodeBlock from '../components/shared/CodeBlock'

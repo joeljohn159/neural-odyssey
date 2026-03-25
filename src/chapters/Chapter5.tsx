@@ -25,7 +25,6 @@ function ConvolutionStepper() {
   ]
 
   // Compute all output positions
-  const outputSize = 4 // 6-3+1
   const positions: { row: number; col: number; products: number[]; sum: number }[] = []
   for (let r = 0; r <= image.length - 3; r++) {
     for (let c = 0; c <= image[0].length - 3; c++) {
