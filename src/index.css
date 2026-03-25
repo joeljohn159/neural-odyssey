@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Newsreader', serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-neural-input: #3B82F6;
+  --color-neural-weight: #10B981;
+  --color-neural-bias: #F59E0B;
+  --color-neural-activation: #8B5CF6;
+  --color-neural-gradient: #EF4444;
+  --color-neural-output: #14B8A6;
+
+  --color-surface: #FAFAF9;
+  --color-surface-alt: #F5F5F4;
+  --color-surface-elevated: #FFFFFF;
+  --color-border: #E7E5E4;
+  --color-border-strong: #D6D3D1;
+  --color-text-primary: #1C1917;
+  --color-text-secondary: #57534E;
+  --color-text-tertiary: #A8A29E;
+  --color-accent: #2563EB;
+  --color-accent-light: #DBEAFE;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .dark {
+    --color-surface: #0C0A09;
+    --color-surface-alt: #1C1917;
+    --color-surface-elevated: #292524;
+    --color-border: #44403C;
+    --color-border-strong: #57534E;
+    --color-text-primary: #FAFAF9;
+    --color-text-secondary: #A8A29E;
+    --color-text-tertiary: #78716C;
+    --color-accent: #60A5FA;
+    --color-accent-light: #1E3A5F;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.875rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  ::selection {
+    background-color: var(--color-accent-light);
+    color: var(--color-accent);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .prose-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .prose-content p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+  }
+
+  .prose-content h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .prose-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .number-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .prose-content { max-width: 100%; }
+}
